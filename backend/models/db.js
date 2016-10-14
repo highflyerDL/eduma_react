@@ -6,7 +6,7 @@
 
 var mongoose = require('mongoose');
 var gracefulShutdown;
-var dbURI = 'mongodb://localhost/eduma_app';
+var dbURI = 'mongodb://admin:admin@ds057816.mlab.com:57816/eduma';
 
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGOLAB_URI;
