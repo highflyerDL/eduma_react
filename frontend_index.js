@@ -3,10 +3,10 @@ import React from 'react';
 import { render } from 'react-dom';
 
 // CSS 
-import './css/style.css';
+import './frontend/css/style.css';
 
 // Routes
-import routes from './router';
+import routes from './frontend/router';
 
 // Render
 render(
