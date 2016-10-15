@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: localStorage.getItem('name')
+      name: "Hoang"
     };
     this.changeName = this.changeName.bind(this);
   }
