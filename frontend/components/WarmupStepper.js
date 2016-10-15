@@ -10,6 +10,9 @@ import ExpandTransition from 'material-ui/internal/ExpandTransition';
 import TextField from 'material-ui/TextField';
 import { WithContext as ReactTags } from 'react-tag-input';
 import Person from "./Person";
+import Phone from 'material-ui/svg-icons/communication/phone';
+import IconButton from 'material-ui/IconButton';
+import Avatar from 'material-ui/Avatar';
 
 /**
  * A contrived example using a transition between steps
@@ -206,10 +209,32 @@ class WarmupStepper extends React.Component {
       JoinGroup = <RaisedButton label={"Join group"} primary={true}/>;
     }
     var GroupChat;
-    if(this.state.hasJoined){
-      GroupChat = <RaisedButton label={"Group caht"} primary={true}/>;
+    if(!this.state.hasJoined){
     } else {
-      GroupChat = <RaisedButton label={"asdasd"} primary={true}/>;
+      GroupChat = 
+      <div className="wrapper">
+        <nav id="nav" className="nav">
+          <div className="default-nav">
+            <div className="main-nav">
+              <div className="toggle"></div>
+              <span style={{margin: 'auto 0'}}>Minh Cao, Pirjo, Kaisa</span>
+              <IconButton style={{ margin: '10px 0px 10px 50px'}} iconStyle={{color: 'white'}}>
+                <Phone/>
+              </IconButton>
+            </div>
+          </div>
+        </nav>
+        <div id="inner" className="inner">
+          <div id="content" className="content"><div className="message-wrapper me">
+                    <Avatar style={{float:'right'}} src="frontend/img/minh.jpg"/>
+                    <div className="text-wrapper animated fadeIn">Hello Everyone, my name is Minh Cao. I am from Vietnam, I love modern art and milk is my favorite drink.</div>
+                  </div></div>
+        </div>
+        <div id="bottom" className="bottom">
+          <textarea id="input" className="input"></textarea>
+          <div id="send" className="send"></div>
+        </div>
+      </div>;
     }
 
     return (
