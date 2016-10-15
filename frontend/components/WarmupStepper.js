@@ -9,6 +9,7 @@ import FlatButton from 'material-ui/FlatButton';
 import ExpandTransition from 'material-ui/internal/ExpandTransition';
 import TextField from 'material-ui/TextField';
 import { WithContext as ReactTags } from 'react-tag-input';
+import Person from "./Person";
 
 /**
  * A contrived example using a transition between steps
@@ -21,8 +22,32 @@ class WarmupStepper extends React.Component {
       loading: false,
       finished: false,
       stepIndex: 0,
-      tags: [ {id: 1, text: "Apples"} ],
-      suggestions: ["Banana", "Mango", "Pear", "Apricot"]
+      tags: [],
+      suggestions: ["Geography", "Finland", "Maths"],
+      joinGroup: false,
+      hasJoined: false,
+      people: [
+        {
+          name: "Hoang",
+          image: "frontend/img/hoang.jpg",
+          chips: ["Geography", "Finland", "Basketball", "Programming"]
+        },
+        {
+          name: "Pirjo",
+          image: "frontend/img/pirjo.jpg",
+          chips: ["Geography", "Finland", "Education", "Learning", "People"]
+        },
+        {
+          name: "Tri",
+          image: "frontend/img/tri.jpg",
+          chips: ["Geography", "Finland", "Soccer"]
+        },
+        {
+          name: "Kaisa",
+          image: "frontend/img/kaisa.jpg",
+          chips: ["Geography", "Finland", "Movies", "Education"]
+        },
+      ]
     }
 
     this.dummyAsync = this.dummyAsync.bind(this);
@@ -33,6 +58,12 @@ class WarmupStepper extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
     this.handleDrag = this.handleDrag.bind(this);
+    this.joinVisible = this.joinVisible.bind(this);
+  }
+
+  joinVisible(){
+    this.state.joinGroup = true;
+    this.setState(this);
   }
 
   dummyAsync(cb) {
@@ -73,7 +104,7 @@ class WarmupStepper extends React.Component {
       this.dummyAsync(() => this.setState({
         loading: false,
         stepIndex: stepIndex + 1,
-        finished: stepIndex >= 2,
+        finished: stepIndex >= 1,
       }));
     }
   };
@@ -103,9 +134,17 @@ class WarmupStepper extends React.Component {
         );
       case 1:
         return (
+          <div>
           <p>
-            Pirijo and Hoang share the same interest in <b>#Geography</b>. <a>Click here</a> to start conversation with them
+            These people have the same tags in <b>#Geography</b> and <b>#Finland</b>.
           </p>
+          {this.state.people.map((person, index)=>{
+            return <Person key={index} name={person.name} chips={person.chips} image={person.image} joinVisible={this.joinVisible}/>
+          })}
+          <p>
+            Choose and <a onTouchTap={()=>{this.setState({hasJoined: true})}}>join group</a> discussion with your classmates!
+          </p>
+          </div>
         );
       case 2:
         return (
@@ -133,8 +172,8 @@ class WarmupStepper extends React.Component {
                 this.setState({stepIndex: 0, finished: false});
               }}
             >
-              Click here
-            </a> to reset the example.
+              Reset
+            </a> to find more suitable group.
           </p>
         </div>
       );
@@ -151,7 +190,7 @@ class WarmupStepper extends React.Component {
             style={{marginRight: 12}}
           />
           <RaisedButton
-            label={stepIndex === 2 ? 'Finish' : 'Next'}
+            label={stepIndex === 1 ? 'Finish' : 'Next'}
             primary={true}
             onTouchTap={this.handleNext}
           />
@@ -162,6 +201,16 @@ class WarmupStepper extends React.Component {
 
   render() {
     const {loading, stepIndex} = this.state;
+    var JoinGroup;
+    if(this.state.joinGroup){
+      JoinGroup = <RaisedButton label={"Join group"} primary={true}/>;
+    }
+    var GroupChat;
+    if(this.state.hasJoined){
+      GroupChat = <RaisedButton label={"Group caht"} primary={true}/>;
+    } else {
+      GroupChat = <RaisedButton label={"asdasd"} primary={true}/>;
+    }
 
     return (
       <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
@@ -172,13 +221,11 @@ class WarmupStepper extends React.Component {
           <Step>
             <StepLabel>Find classmates that match you</StepLabel>
           </Step>
-          <Step>
-            <StepLabel>Talk and learn with your classmates!</StepLabel>
-          </Step>
         </Stepper>
         <ExpandTransition loading={loading} open={true}>
           {this.renderContent()}
         </ExpandTransition>
+        {GroupChat}
       </div>
     );
   }
