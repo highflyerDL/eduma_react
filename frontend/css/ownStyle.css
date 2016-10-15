@@ -2,9 +2,12 @@
     margin-right: 0;
 }
 
+.avatar {
+    margin: 6px 10px 6px 30px;
+}
+
 .name {
-    margin-left: 50px;
-    margin-right: 130px;
+    margin-right: 100px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     height: 56px;

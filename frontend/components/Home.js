@@ -2,19 +2,37 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 // import { Link } from 'react-router';
 
-class Home extends Component {  
+class Home extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          name: localStorage.getItem('name'),
+            text: ""
+        };
+        this.handleName = this.handleName.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({
+           text: event.target.value
+        });
+
+    }
   
   handleSubmit(event) {
     event.preventDefault();
     let teacherName = event.target.elements[0].value;
     let teacherTopic = event.target.elements[1].value;
-    let path = `featured/${teacherTopic}/${teacherName}`;
+    let path = `featured/${teacherTopic}/${teacherName}`    ;
     browserHistory.push(path);
   }
 
   handleName(event) {
       event.preventDefault();
-      localStorage.setItem('name', event.target.elements[0].value);
+      localStorage.setItem('name', name);
+      this.props.changeName(this.state.text);
   }
 
   render() {
@@ -26,16 +44,8 @@ class Home extends Component {
         <p>We have thousands of videos created by expert teachers on web design and front end development. Our library is continually refreshed with the latest on web technology so you will never fall behind.</p>
         <hr />
         <h3>Featured Teachers</h3>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="Name"/>
-          <input type="text" placeholder="Topic"/>
-          <button type="submit">Go!</button>
-        </form>
-          <br/>
-          <form onSubmit={this.handleName}>
-              <input type="text" placeholder="Name"/>
-              <button type="submit">Go!</button>
-          </form>
+              <input type="text" placeholder="Name" value={this.state.text} onChange={this.handleChange}/>
+              <button onTouchTap={this.handleName} type="submit">Go!</button>
       </div>
     );
   }
