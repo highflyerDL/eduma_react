@@ -11,7 +11,12 @@ class Home extends Component {
     let path = `featured/${teacherTopic}/${teacherName}`;
     browserHistory.push(path);
   }
-  
+
+  handleName(event) {
+      event.preventDefault();
+      localStorage.setItem('name', event.target.elements[0].value);
+  }
+
   render() {
     return (
       <div className="main-content home">
@@ -26,6 +31,11 @@ class Home extends Component {
           <input type="text" placeholder="Topic"/>
           <button type="submit">Go!</button>
         </form>
+          <br/>
+          <form onSubmit={this.handleName}>
+              <input type="text" placeholder="Name"/>
+              <button type="submit">Go!</button>
+          </form>
       </div>
     );
   }

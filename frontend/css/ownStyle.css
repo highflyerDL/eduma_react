@@ -1,0 +1,12 @@
+.icn-logo {
+    margin-right: 0;
+}
+
+.name {
+    margin-left: 50px;
+    margin-right: 130px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    height: 56px;
+    line-height: 56px;
+}
