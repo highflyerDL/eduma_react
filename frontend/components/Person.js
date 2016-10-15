@@ -31,14 +31,14 @@ class Person extends Component {
     if(this.state.done){
       Invite = 
         <IconButton onClick={()=>{this.setState({done: false})}}
-           iconStyle={{width:'30px', height:'30px'}}>
-            <Close/>
+           iconStyle={{color: 'rgba(27, 197, 0, 0.870588)', width:'30px', height:'30px'}}>
+            <Done/>
         </IconButton>
     } else {
       Invite = 
         <IconButton onClick={()=>{this.setState({done: true}); this.props.joinVisible()}}
-           iconStyle={{color: 'rgba(27, 197, 0, 0.870588)', width:'30px', height:'30px'}}>
-            <Done/>
+           iconStyle={{width:'30px', height:'30px'}}>
+            <Close/>
         </IconButton>
     }
     return (

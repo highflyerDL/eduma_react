@@ -238,7 +238,7 @@ header {
   }
   header,
   .main-nav {
-    display: flex;
+    display: flex !important;
     flex-wrap: wrap;
   }
   .main-nav a {
@@ -318,3 +318,6 @@ div.ReactTags__suggestions ul li.active {
     background: #b7cfe0;
     cursor: pointer;
 }
+button, html [type="button"], [type="reset"], [type="submit"] {
+    -webkit-appearance: none !important;
+  }

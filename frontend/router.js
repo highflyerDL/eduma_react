@@ -6,7 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // Components
 import App from './components/App';
 import Home from './components/Home';
-import About from './components/About';
+import Chat from './components/Chat';
 import Courses from './components/Courses';
 import CourseDetail from './components/CourseDetail';
 import Teachers from './components/Teachers';
@@ -21,7 +21,7 @@ const routes = (
     <Router history={browserHistory}>
       <Route component={App}>
         <Route path="/" component={Home} />
-        <Route path="about" component={About} title="About" />
+        <Route path="chat" component={Chat} title="Chat" />
         <Route path="teachers" component={Teachers} />
         <Route path="courses" component={Courses}>
           <IndexRedirect to="html" />
