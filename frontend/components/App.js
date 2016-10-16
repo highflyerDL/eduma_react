@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import NavLink from './NavLink';
 import Avatar from 'material-ui/Avatar';
 import styles from '../css/ownStyle.css';
+import { Link } from 'react-router';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      name: localStorage.getItem('name')
+      name: "Minh"
     };
     this.changeName = this.changeName.bind(this);
   }
@@ -17,6 +18,7 @@ class App extends Component {
     this.setState({
       name: newName
     });
+    localStorage.setItem('session', newName);
   }
 
   render() {
@@ -24,7 +26,9 @@ class App extends Component {
       <div className="container">
         <header>
           <span className="icn-logo"><i className="material-icons">code</i></span>
-          <Avatar className="avatar" src={`frontend/img/${this.state.name.toLowerCase()}.jpg`} />
+          <Link to="/profile">
+            <Avatar className="avatar" src={`frontend/img/${this.state.name.toLowerCase()}.jpg`} />
+          </Link>
           <span className="name">{this.state.name}</span>
           <ul className="main-nav">
             <li><NavLink to="/">Home</NavLink></li>

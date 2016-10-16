@@ -25,7 +25,7 @@ class Chat extends Component {
       Sent =             
       <div className="message-wrapper me">
         <Avatar style={{float:'right'}} src="frontend/img/hoang.jpg"/>
-        <div className="text-wrapper animated fadeIn">Hi Minh. How's it going?</div>
+        <div className="text-wrapper animated fadeIn">Hi Minh. What's your favorite band or singer ?</div>
       </div>;
     }
     return (
@@ -34,7 +34,7 @@ class Chat extends Component {
           <div className="default-nav">
             <div className="main-nav">
               <div className="toggle"></div>
-              <span style={{margin: 'auto 0'}}>Minh Cao, Pirjo, Kaisa</span>
+              <span style={{margin: 'auto 0'}}>Hoang, Kaisa, Minh</span>
               <IconButton style={{ margin: '10px 0px 10px 50px'}} iconStyle={{color: 'white'}}>
                 <Phone/>
               </IconButton>
@@ -45,7 +45,7 @@ class Chat extends Component {
           <div id="content" className="content">
             <div className="message-wrapper them">
               <Avatar style={{float:'left'}} src="frontend/img/minh.jpg"/>
-              <div className="text-wrapper animated fadeIn sender">Hello Everyone, my name is Minh Cao. I am from Vietnam, I love modern art and milk is my favorite drink.</div>
+              <div className="text-wrapper animated fadeIn sender">Hello everyone, my name is Minh Cao. I am from Vietnam, I love modern arts and milk is my favorite drink.</div>
             </div>
             {Sent}            
           </div>

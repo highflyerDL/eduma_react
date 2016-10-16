@@ -26,29 +26,29 @@ class WarmupStepper extends React.Component {
       finished: false,
       stepIndex: 0,
       tags: [],
-      suggestions: ["Geography", "Finland", "Maths"],
+      suggestions: ["Geography", "Finland", "Music"],
       joinGroup: false,
       hasJoined: false,
       people: [
         {
           name: "Hoang",
           image: "frontend/img/hoang.jpg",
-          chips: ["Geography", "Finland", "Basketball", "Programming"]
+          chips: ["Music", "Finland", "Basketball", "Programming"]
         },
         {
           name: "Pirjo",
           image: "frontend/img/pirjo.jpg",
-          chips: ["Geography", "Finland", "Education", "Learning", "People"]
+          chips: ["Music", "Finland", "Education", "Learning", "People"]
         },
         {
           name: "Tri",
           image: "frontend/img/tri.jpg",
-          chips: ["Geography", "Finland", "Soccer"]
+          chips: ["Music", "Finland", "Soccer"]
         },
         {
           name: "Kaisa",
           image: "frontend/img/kaisa.jpg",
-          chips: ["Geography", "Finland", "Movies", "Education"]
+          chips: ["Music", "Finland", "Movies", "Education"]
         },
       ]
     }
@@ -132,14 +132,14 @@ class WarmupStepper extends React.Component {
                 handleDelete={this.handleDelete}
                 handleAddition={this.handleAddition}
                 handleDrag={this.handleDrag} />
-            <p>Something something whatever cool</p>
+            <p>Add topics or interests to find like-minded classmates</p>
           </div>
         );
       case 1:
         return (
           <div>
           <p>
-            These people have the same tags in <b>#Geography</b> and <b>#Finland</b>.
+            These people have the same tags in <b>#Music</b> and <b>#Finland</b>.
           </p>
           {this.state.people.map((person, index)=>{
             return <Person key={index} name={person.name} chips={person.chips} image={person.image} joinVisible={this.joinVisible}/>
@@ -217,7 +217,7 @@ class WarmupStepper extends React.Component {
           <div className="default-nav">
             <div className="main-nav">
               <div className="toggle"></div>
-              <span style={{margin: 'auto 0'}}>Minh Cao, Pirjo, Kaisa</span>
+              <span style={{margin: 'auto 0'}}>Minh, Hoang, Kaisa</span>
               <IconButton style={{ margin: '10px 0px 10px 50px'}} iconStyle={{color: 'white'}}>
                 <Phone/>
               </IconButton>
@@ -227,7 +227,7 @@ class WarmupStepper extends React.Component {
         <div id="inner" className="inner">
           <div id="content" className="content"><div className="message-wrapper me">
                     <Avatar style={{float:'right'}} src="frontend/img/minh.jpg"/>
-                    <div className="text-wrapper animated fadeIn">Hello Everyone, my name is Minh Cao. I am from Vietnam, I love modern art and milk is my favorite drink.</div>
+                    <div className="text-wrapper animated fadeIn">Hello everyone, my name is Minh Cao. I am from Vietnam, I love modern arts and milk is my favorite drink.</div>
                   </div></div>
         </div>
         <div id="bottom" className="bottom">
@@ -239,6 +239,8 @@ class WarmupStepper extends React.Component {
 
     return (
       <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
+        <h2 style={{margin: '0 auto'}}>Warmup activity</h2>
+        <h3>Find your classmates based on interests to increase collaboration in class!</h3>
         <Stepper activeStep={stepIndex}>
           <Step>
             <StepLabel>Write your interests</StepLabel>
