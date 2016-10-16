@@ -31,7 +31,7 @@ class Home extends Component {
 
   handleName(event) {
       event.preventDefault();
-      localStorage.setItem('name', name);
+      // localStorage.setItem('name', name);
       this.props.changeName(this.state.text);
   }
 
