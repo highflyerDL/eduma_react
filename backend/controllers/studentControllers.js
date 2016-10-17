@@ -119,14 +119,14 @@ module.exports.registerStudentsHandler = function(req,res){
                 var token;
                 if (err){
                     sendJsonResponse(res, 404, {
-                        "message": "cannot generate access token"
+                        "message": "cannot generate access token, one of your field does not fit the requirement"
                     });
                     return;
                 } else{
                     token = student.generateJwt();
                     sendJsonResponse(res, 200, {
                         "token": token,
-                        "student": student
+                        //"student": student
                     });
                     return;
                 }

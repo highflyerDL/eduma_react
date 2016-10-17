@@ -153,7 +153,7 @@ module.exports.registerTeachersHandler = function(req,res){
                     token = teacher.generateJwt();
                     sendJsonResponse(res, 200, {
                         "token": token,
-                        "teacher": teacher
+                        //"teacher": teacher
                     });
                     return;
                 }
